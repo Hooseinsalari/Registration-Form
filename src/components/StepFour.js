@@ -1,6 +1,11 @@
 import React from "react";
 
-const StepFour = ({prevStep}) => {
+const StepFour = ({prevStep, data, setData}) => {
+
+  const inputHandler = (e) => {
+    setData({...data, [e.target.name]: e.target.value})
+  }
+
   return (
     <div className="animate-step origin-top">
       <div className="my-6">
@@ -8,9 +13,12 @@ const StepFour = ({prevStep}) => {
           Pssword
         </label>
         <input
-          type="text"
+          type="password"
           id="password"
           className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          name="password"
+          value={data.password}
+          onChange={inputHandler}
         />
       </div>
       <div className="my-6">
@@ -18,9 +26,12 @@ const StepFour = ({prevStep}) => {
           Confirm Pssword
         </label>
         <input
-          type="text"
+          type="password"
           id="confirmpassword"
           className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          name="confirmPassword"
+          value={data.confirmPassword}
+          onChange={inputHandler}
         />
       </div>
 

@@ -1,6 +1,11 @@
 import React from "react";
 
-const StepTwo = ({nextStep, prevStep}) => {
+const StepTwo = ({nextStep, prevStep, data, setData}) => {
+
+  const inputHandler = (e) => {
+    setData({...data, [e.target.name]: e.target.value})
+  }
+
   return (
     <div className="animate-step origin-top">
       <div className="my-6">
@@ -11,6 +16,9 @@ const StepTwo = ({nextStep, prevStep}) => {
           type="text"
           id="phone"
           className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          name="phone"
+          value={data.phone}
+          onChange={inputHandler}
         />
       </div>
       <div className="my-6">
@@ -21,6 +29,9 @@ const StepTwo = ({nextStep, prevStep}) => {
           type="text"
           id="email"
           className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          name="email"
+          value={data.email}
+          onChange={inputHandler}
         />
       </div>
 

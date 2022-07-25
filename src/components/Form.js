@@ -9,15 +9,23 @@ import StepTwo from "./StepTwo";
 
 const Form = () => {
   const [step, setStep] = useState(1);
+  const [data, setData] = useState({
+    username: '',
+    position: '',
+    phone: '',
+    email: '',
+    dob: '',
+    id: '',
+    password: '',
+    confirmPassword: ''
+  })
 
   const nextStep = () => {
     setStep((prevState) => prevState + 1);
-    console.log(step);
   };
 
   const prevStep = () => {
     setStep((prevState) => prevState - 1);
-    console.log(step);
   };
 
   const renderStep = () => {
@@ -25,25 +33,25 @@ const Form = () => {
       case 1:
         return (
           <>
-            <StepOne nextStep={nextStep} />
+            <StepOne nextStep={nextStep} data={data} setData={setData} />
           </>
         );
       case 2:
         return (
           <>
-            <StepTwo nextStep={nextStep} prevStep={prevStep} />
+            <StepTwo nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} />
           </>
         );
       case 3:
         return (
           <>
-            <StepThree nextStep={nextStep} prevStep={prevStep} />
+            <StepThree nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} />
           </>
         );
       case 4:
         return (
           <>
-            <StepFour nextStep={nextStep} prevStep={prevStep} />
+            <StepFour nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} />
           </>
         );
       default:
