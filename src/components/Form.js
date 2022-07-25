@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ProgressBar from "./ProgressBar";
 import StepFour from "./StepFour";
 
 // steps
@@ -6,66 +7,64 @@ import StepOne from "./StepOne";
 import StepThree from "./StepThree";
 import StepTwo from "./StepTwo";
 
-
-
 const Form = () => {
+  const [step, setStep] = useState(1);
 
-    const [step, setStep] = useState(1);
+  const nextStep = () => {
+    setStep((prevState) => prevState + 1);
+    console.log(step);
+  };
 
-    const nextStep = () => {
-        setStep((prevState) => prevState + 1)
-        console.log(step);
+  const prevStep = () => {
+    setStep((prevState) => prevState - 1);
+    console.log(step);
+  };
+
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return (
+          <>
+            <StepOne nextStep={nextStep} />
+          </>
+        );
+      case 2:
+        return (
+          <>
+            <StepTwo nextStep={nextStep} prevStep={prevStep} />
+          </>
+        );
+      case 3:
+        return (
+          <>
+            <StepThree nextStep={nextStep} prevStep={prevStep} />
+          </>
+        );
+      case 4:
+        return (
+          <>
+            <StepFour nextStep={nextStep} prevStep={prevStep} />
+          </>
+        );
+      default:
+        return (
+          <>
+            <StepOne nextStep={nextStep} />
+          </>
+        );
     }
+  };
 
-    const prevStep = () => {
-        setStep((prevState) => prevState - 1)
-        console.log(step);
-    }
-
-    const renderStep = () => {
-        switch(step) {
-            case 1: return (
-                <>
-                    <StepOne nextStep={nextStep} />
-                </>
-            )
-            case 2: return (
-                <>
-                    <StepTwo nextStep={nextStep} prevStep={prevStep} />
-                </>
-            )
-            case 3: return (
-                <>
-                    <StepThree nextStep={nextStep} prevStep={prevStep} />
-                </>
-            )
-            case 4: return (
-                <>
-                    <StepFour nextStep={nextStep} prevStep={prevStep} />
-                </>
-            )
-            default: return (
-                <>
-                    <StepOne nextStep={nextStep} />
-                </>
-            )
-        }
-    }
-
-   return (
+  return (
     <div>
-      <form className="shadow-xl p-3 rounded-md w-96 border-2 border-gray-300">
-        
+      <form className="shadow-xl py-3 px-8 rounded-md w-[430px] m-auto border-2 border-gray-300">
         <h1 className="text-3xl font-semibold text-neutral-700 my-3 text-center">
           Registration Form
         </h1>
 
-        {
-            renderStep()
-        }
+        <ProgressBar step={step} />
 
-        {/* step one */}
-        
+        {renderStep()}
       </form>
     </div>
   );

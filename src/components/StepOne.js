@@ -24,10 +24,10 @@ const StepOne = ({ nextStep }) => {
         />
       </div>
 
-      <div className="w-1/2">
+      <div className="text-right">
         <button
           href="#"
-          className="w-full text-center mr-2 bg-blue-700 text-white px-6 py-2 rounded-sm my-5 inline-block hover:shadow-md delay-100"
+          className="w-1/2 text-center bg-blue-700 text-white px-6 py-2 rounded-sm my-5 inline-block hover:shadow-md delay-100"
           onClick={nextStep}
         >
           Next
