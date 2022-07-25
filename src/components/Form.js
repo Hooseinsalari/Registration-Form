@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProgressBar from "./ProgressBar";
 import StepFour from "./StepFour";
 
@@ -7,8 +7,12 @@ import StepOne from "./StepOne";
 import StepThree from "./StepThree";
 import StepTwo from "./StepTwo";
 
+// validation
+import { validate } from "./validate";
+
 const Form = () => {
   const [step, setStep] = useState(1);
+
   const [data, setData] = useState({
     username: '',
     position: '',
@@ -19,6 +23,14 @@ const Form = () => {
     password: '',
     confirmPassword: ''
   })
+
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
+  useEffect(() => {
+    setErrors(validate(data))
+    // console.log(errors);
+  }, [data])
 
   const nextStep = () => {
     setStep((prevState) => prevState + 1);
@@ -33,25 +45,25 @@ const Form = () => {
       case 1:
         return (
           <>
-            <StepOne nextStep={nextStep} data={data} setData={setData} />
+            <StepOne errors={errors} nextStep={nextStep} data={data} setData={setData} touched={touched} setTouched={setTouched} />
           </>
         );
       case 2:
         return (
           <>
-            <StepTwo nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} />
+            <StepTwo errors={errors} nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} touched={touched} setTouched={setTouched} />
           </>
         );
       case 3:
         return (
           <>
-            <StepThree nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} />
+            <StepThree errors={errors} nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} touched={touched} setTouched={setTouched} />
           </>
         );
       case 4:
         return (
           <>
-            <StepFour nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} />
+            <StepFour errors={errors} nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} touched={touched} setTouched={setTouched} />
           </>
         );
       default:
@@ -70,9 +82,13 @@ const Form = () => {
           Registration Form
         </h1>
 
-        <ProgressBar step={step} />
+        <>
+          <ProgressBar step={step} />
+        </>
 
-        {renderStep()}
+        <>
+          {renderStep()}
+        </>
       </form>
     </div>
   );

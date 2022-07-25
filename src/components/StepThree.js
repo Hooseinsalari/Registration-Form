@@ -1,14 +1,18 @@
 import React from "react";
 
-const StepThree = ({nextStep, prevStep, data, setData}) => {
+const StepThree = ({nextStep, prevStep, data, setData, errors, touched, setTouched}) => {
 
   const inputHandler = (e) => {
     setData({...data, [e.target.name]: e.target.value})
   }
 
+  const focusHandler = (e) => {
+    setTouched({...touched, [e.target.name]: true})
+  }
+
   return (
     <div className="animate-step origin-top">
-      <div className="my-6">
+      <div className="my-12 relative">
         <label htmlFor="dob" className="block font-medium ml-1">
           Day Of Birthday
         </label>
@@ -19,9 +23,11 @@ const StepThree = ({nextStep, prevStep, data, setData}) => {
           name="dob"
           value={data.dob}
           onChange={inputHandler}
+          onFocus={focusHandler}
         />
+        {errors.dob && touched.dob && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.dob}</span>}
       </div>
-      <div className="my-6">
+      <div className="my-12 relative">
         <label htmlFor="id" className="block font-medium ml-1">
           National ID
         </label>
@@ -32,7 +38,9 @@ const StepThree = ({nextStep, prevStep, data, setData}) => {
           name="id"
           value={data.id}
           onChange={inputHandler}
+          onFocus={focusHandler}
         />
+        {errors.id && touched.id && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.id}</span>}
       </div>
 
       <div className="flex items-center justify-between">
