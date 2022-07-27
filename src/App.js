@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div className="h-screen bg-slate-100 grid place-items-center">
+    <div className="min-h-screen bg-slate-100 grid place-items-center">
       <Form />
 
       <ToastContainer />

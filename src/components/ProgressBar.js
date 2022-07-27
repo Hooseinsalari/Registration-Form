@@ -20,9 +20,9 @@ const ProgressBar = ({ step }) => {
   }, [step]);
 
   return (
-    <div className="relative flex items-center justify-between my-12 before:w-11/12 before:h-1 before:bg-gray-300 before:absolute before:top-1/2">
+    <div className="relative flex items-center justify-between mb-10 mt-8 before:w-11/12 before:h-1 before:bg-gray-300 before:absolute before:top-1/2">
       <div
-        className={`absolute rounded-lg bg-blue-700 w-${progressNum} h-1 top-1/2 ease-in-out duration-500`}
+        className={`absolute bg-blue-700 w-${progressNum} h-1 top-1/2 ease-in-out duration-500`}
       ></div>
 
       <div
