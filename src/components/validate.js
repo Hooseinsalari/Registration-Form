@@ -43,7 +43,7 @@ export const validate = (data) => {
 
   if (!data.password) {
     error.password = "Password required";
-  } else if (data.password.length < 6) {
+  } else if (data.password.length < 8) {
     error.password = "Password need to be 8 character or more";
   } else {
     delete error.password;

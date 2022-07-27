@@ -19,13 +19,13 @@ const StepThree = ({nextStep, prevStep, data, setData, errors, touched, setTouch
         <input
           type="date"
           id="dob"
-          className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          className={`${errors.dob ? 'focus:border-red-700' :'focus:border-blue-700'} shadow-md block w-full p-3 rounded-md border-2 focus:border-1 outline-none`}
           name="dob"
           value={data.dob}
           onChange={inputHandler}
           onFocus={focusHandler}
         />
-        {errors.dob && touched.dob && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.dob}</span>}
+        {errors.dob && touched.dob && <span className="absolute mt-1.5 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.dob}</span>}
       </div>
       <div className="my-12 relative">
         <label htmlFor="id" className="block font-medium ml-1">
@@ -34,13 +34,13 @@ const StepThree = ({nextStep, prevStep, data, setData, errors, touched, setTouch
         <input
           type="text"
           id="id"
-          className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          className={`${errors.id ? 'focus:border-red-700' :'focus:border-blue-700'} shadow-md block w-full p-3 rounded-md border-2 focus:border-1 outline-none`}
           name="id"
           value={data.id}
           onChange={inputHandler}
           onFocus={focusHandler}
         />
-        {errors.id && touched.id && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.id}</span>}
+        {errors.id && touched.id && <span className="absolute mt-1.5 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.id}</span>}
       </div>
 
       <div className="flex items-center justify-between">

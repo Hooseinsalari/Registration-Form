@@ -19,13 +19,13 @@ const StepOne = ({ nextStep, data, setData, errors, touched, setTouched }) => {
         <input
           type="text"
           id="username"
-          className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          className={`${errors.username ? 'focus:border-red-700' :'focus:border-blue-700'} shadow-md block w-full p-3 rounded-md border-2 focus:border-1 outline-none`}
           name="username"
           value={data.username}
           onChange={inputHandler}
           onFocus={focusHandler}
         />
-        { touched.username && errors.username && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.username}</span>}
+        { touched.username && errors.username && <span className="absolute mt-2 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.username}</span>}
       </div>
       <div className="my-12 relative">
         <label htmlFor="position" className="block font-medium ml-1">
@@ -34,13 +34,13 @@ const StepOne = ({ nextStep, data, setData, errors, touched, setTouched }) => {
         <input
           type="text"
           id="position"
-          className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          className={`${errors.position ? 'focus:border-red-700' :'focus:border-blue-700'} shadow-md block w-full p-3 rounded-md border-2 focus:border-1 outline-none`}
           name="position"
           value={data.position}
           onChange={inputHandler}
           onFocus={focusHandler}
         />
-        { touched.position && errors.position && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.position}</span>}
+        { touched.position && errors.position && <span className="absolute mt-2 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.position}</span>}
       </div>
 
       <div className="text-right">

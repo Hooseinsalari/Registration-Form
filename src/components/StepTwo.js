@@ -19,13 +19,13 @@ const StepTwo = ({nextStep, prevStep, data, setData, errors, touched, setTouched
         <input
           type="number"
           id="phone"
-          className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          className={`${errors.phone ? 'focus:border-red-700' :'focus:border-blue-700'} shadow-md block w-full p-3 rounded-md border-2 focus:border-1 outline-none`}
           name="phone"
           value={data.phone}
           onChange={inputHandler}
           onFocus={focusHandler}
         />
-        {errors.phone && touched.phone && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.phone}</span>}
+        {errors.phone && touched.phone && <span className="absolute mt-1.5 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.phone}</span>}
       </div>
       <div className="my-12 relative">
         <label htmlFor="email" className="block font-medium ml-1">
@@ -34,13 +34,13 @@ const StepTwo = ({nextStep, prevStep, data, setData, errors, touched, setTouched
         <input
           type="email"
           id="email"
-          className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          className={`${errors.email ? 'focus:border-red-700' :'focus:border-blue-700'} shadow-md block w-full p-3 rounded-md border-2 focus:border-1 outline-none`}
           name="email"
           value={data.email}
           onChange={inputHandler}
           onFocus={focusHandler}
         />
-        {errors.email && touched.email && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.email}</span>}
+        {errors.email && touched.email && <span className="absolute mt-1.5 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.email}</span>}
       </div>
 
       <div className="flex items-center justify-between">

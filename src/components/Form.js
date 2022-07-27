@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { notify } from "./notify";
 import ProgressBar from "./ProgressBar";
 import StepFour from "./StepFour";
 
@@ -75,9 +76,35 @@ const Form = () => {
     }
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault()
+
+    console.log(data);
+
+    if(!Object.keys(errors).length) {
+      notify('success', 'Done successfully')
+
+      setData({
+        username: '',
+        position: '',
+        phone: '',
+        email: '',
+        dob: '',
+        id: '',
+        password: '',
+        confirmPassword: ''
+      })
+
+      setTouched({})
+    } else {
+      notify('error', 'Something is wrong')
+    }
+
+  }
+
   return (
     <div>
-      <form className="shadow-xl py-3 px-8 rounded-md w-[430px] m-auto border-2 border-gray-300">
+      <form onSubmit={submitHandler} className="shadow-xl py-3 px-8 rounded-md w-[430px] m-auto border-2 border-gray-300">
         <h1 className="text-3xl font-semibold text-neutral-700 my-3 text-center">
           Registration Form
         </h1>

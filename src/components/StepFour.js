@@ -19,13 +19,13 @@ const StepFour = ({prevStep, data, setData, errors, touched, setTouched}) => {
         <input
           type="password"
           id="password"
-          className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          className={`${errors.password ? 'focus:border-red-700' :'focus:border-blue-700'} shadow-md block w-full p-3 rounded-md border-2 focus:border-1 outline-none`}
           name="password"
           value={data.password}
           onChange={inputHandler}
           onFocus={focusHandler}
         />
-        {errors.password && touched.password && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.password}</span>}
+        {errors.password && touched.password && <span className="absolute mt-1.5 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.password}</span>}
       </div>
       <div className="my-12 relative">
         <label htmlFor="confirmpassword" className="block font-medium ml-1">
@@ -34,13 +34,13 @@ const StepFour = ({prevStep, data, setData, errors, touched, setTouched}) => {
         <input
           type="password"
           id="confirmPassword"
-          className="block w-full p-3 rounded-md border focus:border-blue-700 outline-none transition"
+          className={`${errors.confirmPassword ? 'focus:border-red-700' :'focus:border-blue-700'} shadow-md block w-full p-3 rounded-md border-2 focus:border-1 outline-none`}
           name="confirmPassword"
           value={data.confirmPassword}
           onChange={inputHandler}
           onFocus={focusHandler}
         />
-        {errors.confirmPassword && touched.confirmPassword && <span className="absolute mt-1 ml-1 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.confirmPassword}</span>}
+        {errors.confirmPassword && touched.confirmPassword && <span className="absolute mt-1.5 bg-red-200 text-red-900 font-semibold rounded-lg py-1 px-2 text-sm">{errors.confirmPassword}</span>}
       </div>
 
       <div className="flex items-center justify-between">
@@ -54,6 +54,7 @@ const StepFour = ({prevStep, data, setData, errors, touched, setTouched}) => {
         <button
           href="#"
           className="w-full text-center mr-2 bg-blue-700 text-white px-6 py-2 rounded-sm my-5 inline-block hover:shadow-md delay-100"
+          type="submit"
         >
           Submit
         </button>
