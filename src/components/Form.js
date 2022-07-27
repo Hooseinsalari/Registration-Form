@@ -15,23 +15,23 @@ const Form = () => {
   const [step, setStep] = useState(1);
 
   const [data, setData] = useState({
-    username: '',
-    position: '',
-    phone: '',
-    email: '',
-    dob: '',
-    id: '',
-    password: '',
-    confirmPassword: ''
-  })
+    username: "",
+    position: "",
+    phone: "",
+    email: "",
+    dob: "",
+    id: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
   useEffect(() => {
-    setErrors(validate(data))
+    setErrors(validate(data));
     // console.log(errors);
-  }, [data])
+  }, [data]);
 
   const nextStep = () => {
     setStep((prevState) => prevState + 1);
@@ -46,25 +46,56 @@ const Form = () => {
       case 1:
         return (
           <>
-            <StepOne errors={errors} nextStep={nextStep} data={data} setData={setData} touched={touched} setTouched={setTouched} />
+            <StepOne
+              errors={errors}
+              nextStep={nextStep}
+              data={data}
+              setData={setData}
+              touched={touched}
+              setTouched={setTouched}
+            />
           </>
         );
       case 2:
         return (
           <>
-            <StepTwo errors={errors} nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} touched={touched} setTouched={setTouched} />
+            <StepTwo
+              errors={errors}
+              nextStep={nextStep}
+              prevStep={prevStep}
+              data={data}
+              setData={setData}
+              touched={touched}
+              setTouched={setTouched}
+            />
           </>
         );
       case 3:
         return (
           <>
-            <StepThree errors={errors} nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} touched={touched} setTouched={setTouched} />
+            <StepThree
+              errors={errors}
+              nextStep={nextStep}
+              prevStep={prevStep}
+              data={data}
+              setData={setData}
+              touched={touched}
+              setTouched={setTouched}
+            />
           </>
         );
       case 4:
         return (
           <>
-            <StepFour errors={errors} nextStep={nextStep} prevStep={prevStep} data={data} setData={setData} touched={touched} setTouched={setTouched} />
+            <StepFour
+              errors={errors}
+              nextStep={nextStep}
+              prevStep={prevStep}
+              data={data}
+              setData={setData}
+              touched={touched}
+              setTouched={setTouched}
+            />
           </>
         );
       default:
@@ -77,34 +108,36 @@ const Form = () => {
   };
 
   const submitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     console.log(data);
 
-    if(!Object.keys(errors).length) {
-      notify('success', 'Done successfully')
+    if (!Object.keys(errors).length) {
+      notify("success", "Done successfully");
 
       setData({
-        username: '',
-        position: '',
-        phone: '',
-        email: '',
-        dob: '',
-        id: '',
-        password: '',
-        confirmPassword: ''
-      })
+        username: "",
+        position: "",
+        phone: "",
+        email: "",
+        dob: "",
+        id: "",
+        password: "",
+        confirmPassword: "",
+      });
 
-      setTouched({})
+      setTouched({});
     } else {
-      notify('error', 'Something is wrong')
+      notify("error", "Something is wrong");
     }
-
-  }
+  };
 
   return (
     <div>
-      <form onSubmit={submitHandler} className="shadow-xl py-3 px-8 rounded-md w-[430px] m-auto border-2 border-gray-300">
+      <form
+        onSubmit={submitHandler}
+        className="shadow-xl py-3 px-8 rounded-md w-[430px] m-auto border-2 border-gray-300"
+      >
         <h1 className="text-3xl font-semibold text-neutral-700 my-3 text-center">
           Registration Form
         </h1>
@@ -113,9 +146,7 @@ const Form = () => {
           <ProgressBar step={step} />
         </>
 
-        <>
-          {renderStep()}
-        </>
+        <>{renderStep()}</>
       </form>
     </div>
   );
