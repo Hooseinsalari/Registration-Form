@@ -12,6 +12,9 @@ module.exports = {
       },
       animation: {
         step: 'step 0.5s',
+      },
+      boxShadow: {
+        btn: '0 0 0 1.5px #fff , 0 0 5px 3px #1d4ed8'
       }
     },
   },

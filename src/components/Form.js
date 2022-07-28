@@ -135,7 +135,7 @@ const Form = () => {
   return (
       <form
         onSubmit={submitHandler}
-        className="shadow-xl py-3 px-8 rounded-md w-11/12 mx-2 my-10 sm:w-[450px] sm:mx-auto sm:my-5 border-2 border-gray-300"
+        className="shadow-xl py-3 px-8 rounded-md w-11/12 sm:w-[450px] sm:my-5 border-2 border-gray-300"
       >
         <h1 className="text-3xl font-semibold text-neutral-700 my-3 text-center">
           Registration Form

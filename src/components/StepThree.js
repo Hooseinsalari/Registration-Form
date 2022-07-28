@@ -65,14 +65,14 @@ const StepThree = ({
       <div className="flex items-center justify-between">
         <button
           href="#"
-          className="w-full text-center mr-2 bg-blue-700 text-white px-6 py-2 rounded-sm mb-2 mt-4 inline-block hover:shadow-md delay-100"
+          className="w-full text-center mr-2 bg-blue-700 text-white px-6 py-2 rounded-sm mb-2 mt-4 inline-block hover:shadow-btn ease-in-out duration-300"
           onClick={prevStep}
         >
           Previous
         </button>
         <button
           href="#"
-          className="w-full text-center mr-2 bg-blue-700 text-white px-6 py-2 rounded-sm mb-2 mt-4 inline-block hover:shadow-md delay-100"
+          className="w-full text-center ml-2 bg-blue-700 text-white px-6 py-2 rounded-sm mb-2 mt-4 inline-block hover:shadow-btn ease-in-out duration-300"
           onClick={nextStep}
         >
           Next

@@ -57,7 +57,7 @@ const StepOne = ({ nextStep, data, setData, errors, touched, setTouched }) => {
       <div className="text-right">
         <button
           href="#"
-          className="w-1/2 text-center bg-blue-700 text-white px-6 py-2 rounded-sm mb-2 mt-4 inline-block hover:shadow-md delay-100"
+          className="w-1/2 hover:shadow-btn text-center bg-blue-700 text-white px-6 py-2 rounded-sm mb-2 mt-4 inline-block ease-in-out duration-300"
           onClick={nextStep}
         >
           Next

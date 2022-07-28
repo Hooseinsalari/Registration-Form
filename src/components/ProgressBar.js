@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from "react";
 
 const ProgressBar = ({ step }) => {
-  const [progressNum, setProgressNum] = useState("0");
-  const [progressClassName , setProgressClassName] = useState('');
+  const [progressClassName, setProgressClassName] = useState("");
 
   useEffect(() => {
-    const progressLength = () => {
-      if (step === 1) {
-        setProgressNum("0");
-        setProgressClassName('absolute bg-blue-700 w-0 h-1 top-1/2 ease-in-out duration-500')
-      } else if (step === 2) {
-        setProgressNum("1/3");
-        setProgressClassName('absolute bg-blue-700 w-1/3 h-1 top-1/2 ease-in-out duration-500')
-      } else if (step === 3) {
-        setProgressNum("2/3");
-        setProgressClassName('absolute bg-blue-700 w-2/3 h-1 top-1/2 ease-in-out duration-500')
-      } else if (step === 4) {
-        setProgressNum("11/12");
-        setProgressClassName('absolute bg-blue-700 w-11/12 h-1 top-1/2 ease-in-out duration-500')
+    const progressBarLength = () => {
+      switch (step) {
+        case 1:
+          setProgressClassName("w-0");
+          break;
+        case 2:
+          setProgressClassName("w-1/3");
+          break;
+        case 3:
+          setProgressClassName("w-2/3");
+          break;
+        case 4:
+          setProgressClassName("w-11/12");
+          break;
       }
     };
 
-    progressLength();
+    progressBarLength();
   }, [step]);
 
   return (
-    <div className="relative flex items-center justify-between mb-10 mt-8 before:w-11/12 before:h-1 before:bg-gray-300 before:absolute before:top-1/2">
+    <div className="relative flex items-center justify-between mt-8 mb-14 before:w-11/12 before:h-1 before:bg-gray-300 before:absolute before:top-1/2">
       <div
-        className={progressClassName}
+        className={`${progressClassName} absolute bg-blue-700 h-1 top-1/2 ease-in-out duration-500`}
       ></div>
 
       <div
